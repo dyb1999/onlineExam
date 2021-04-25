@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>所有题目！！！</title>
+</head>
+<body>
+<h1>所有题目测试！！！</h1>
+<button><a href="/question/add">新增题目</a></button>
+<div>
+    <div th:each="question : ${questions}">
+        <span th:text="${question.id}"></span>
+        <span th:text="${question.major}"></span>
+        <span th:text="${question.subject}"></span>
+        <span th:text="${question.userid}"></span>
+        <span th:text="${question.type}"></span>
+        <span th:text="${question.question}"></span>
+        <span th:text="${question.score}"></span>
+        <span th:text="${question.difficulty}"></span>
+        <span th:text="${question.answer}"></span>
+        <a th:href="@{'/question/delete/' + ${question.id}}">删除</a>
+        <a th:href="@{'/question/update/' + ${question.id}}">修改</a>
+    </div>
+</div>
+<a href="/excel/downLoadExcel"><button>下载题目信息表</button></a>
+<form action="/excel/fileUpload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" value="点击选择文件 : xls/xlsx">
+    <input type="submit" name="button" value="上传">
+</form>
+
+</body>
+</html>

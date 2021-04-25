@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>题型展示！！！</title>
+</head>
+<body>
+<h1>题型</h1>
+<div th:each="type : ${types}">
+    <span th:text="${type.type}">type</span>
+    <span th:text="${type.type_name}">type_name</span>
+    <button><a th:href="@{'/type/delete/' + ${type.type}}">删除</a></button>
+    <button><a th:href="@{'/type/update/' + ${type.type}}">修改</a></button>
+</div>
+<button><a href="/type/add">增加题型</a></button>
+</body>
+</html>

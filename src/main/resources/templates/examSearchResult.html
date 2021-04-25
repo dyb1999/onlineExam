@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>结果</title>
+</head>
+<body>
+<h1>查看结果</h1>
+<div th:each="score : ${scores}">
+    <span th:text="${score.examcode}"></span>
+    <span th:text="${score.paperid}"></span>
+    <span th:text="${score.subject}"></span>
+    <span th:text="${score.loginNumber}"></span>
+    <span th:text="${score.score}"></span>
+    <span th:text="${score.level}"></span>
+</div>
+</body>
+</html>

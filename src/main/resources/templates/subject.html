@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学科</title>
+</head>
+<body>
+<h1>所有学科！！！</h1>
+<div th:each="subject : ${subjects}">
+    <span th:text="${subject.coursename}">课程名</span>
+    <span th:text="${subject.major}">专业</span>
+    <span th:text="${subject.coursegrade}">课程年级</span>
+    <a href="/subject/add">增加课程</a>
+    <a th:href="@{'/subject/delete/' + ${subject.id}}">删除课程</a>
+    <a th:href="@{'/subject/update/' + ${subject.id}}">修改课程</a>
+    <a th:href="@{'/stu/add/' + ${subject.id}}">添加到我的选课记录</a>
+</div>
+</body>
+</html>

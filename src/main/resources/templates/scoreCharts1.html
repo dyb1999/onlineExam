@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图表分析</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.6.0/echarts.min.js"></script>
+</head>
+<body>
+<div id="main" style="width: 600px;height: 400px"></div>
+<input type="hidden" th:value="${nums[0]}" id="value1">
+<input type="hidden" th:value="${nums[1]}" id="value2">
+<input type="hidden" th:value="${nums[2]}" id="value3">
+<input type="hidden" th:value="${nums[3]}" id="value4">
+
+<script type="text/javascript">
+    var mychart = echarts.init(document.getElementById('main'));
+    var value1 = $('#value1').val();
+    var value2 = $('#value2').val();
+    var value3 = $('#value3').val();
+    var value4 = $('#value4').val();
+
+    var option = {
+        title:{
+            text:'成绩等级分布',
+            subtext: '纯属虚构',
+            left: 'center'
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data:['人数']
+        },
+        series: [{
+            name:'考试等级人数',
+            type:'pie',
+            radius: '50%',
+            data: [
+                {value: value1, name: '等级A'},
+                {value: value2, name: '等级B'},
+                {value: value3, name: '等级C'},
+                {value: value4, name: '等级D'},
+            ],
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }]
+    };
+
+    mychart.setOption(option);
+</script>
+</body>
+</html>

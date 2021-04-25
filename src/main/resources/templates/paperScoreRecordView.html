@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>考试记录界面</title>
+</head>
+<body>
+<h1>答题记录！！！</h1>
+<p>输入自动判分的题型编号</p>
+<form action="/record/autoGenerate" method="post">
+    <input type="text" name="type" placeholder="自动判分的题型编号">
+    <input type="submit" name="button" value="提交">
+</form>
+<p>查看某个学生的某场考试某张卷子的所有题目记录</p>
+<form action="/record/select/student" method="post">
+    <input type="text" name="examcode" placeholder="考试编号">
+    <input type="text" name="paperid" placeholder="试卷编号">
+    <input type="text" name="loginNumber" placeholder="学生学号">
+    <input type="submit" name="btn2" value="提交">
+</form>
+<p>查看某个学生的某场考试某张卷子的所有题目记录的题型正确率图表</p>
+<form action="/record/check/condition/questionType" method="post">
+    <input type="text" name="examcode" placeholder="考试编号">
+    <input type="text" name="paperid" placeholder="试卷编号">
+    <input type="text" name="loginNumber" placeholder="学生学号">
+    <input type="submit" name="btn3" value="提交">
+</form>
+<p>查看某个学生的某场考试某张卷子的所有题目记录的知识点正确率图表</p>
+<form action="/record/check/condition/points" method="post">
+    <input type="text" name="examcode" placeholder="考试编号">
+    <input type="text" name="paperid" placeholder="试卷编号">
+    <input type="text" name="loginNumber" placeholder="学生学号">
+    <input type="submit" name="btn3" value="提交">
+</form>
+<span>考试编号</span>
+<span>试卷编号</span>
+<span>问题编号</span>
+<span>学号</span>
+<span>学生答案</span>
+<span>得分</span>
+<div th:each="record : ${recordList}">
+    <span th:text="${record.examcode}">考试编号</span>
+    <span th:text="${record.paperid}">试卷编号</span>
+    <span th:text="${record.questionid}">问题编号</span>
+    <span th:text="${record.loginNumber}">学号</span>
+    <span th:text="${record.studentanswer}">学生答案</span>
+    <span th:text="${record.getscore}">得分</span>
+    <a href="/record/add">添加记录</a>
+    <p>你的判分：</p>
+    <form action="/record/judgeScore" method="post" autocomplete="off">
+<!--        autocomplete="on"-->
+        <input type="hidden" name="examcode" th:value="${record.examcode}">
+        <input type="hidden" name="paperid" th:value="${record.paperid}">
+        <input type="hidden" name="questionid" th:value="${record.questionid}">
+        <input type="hidden" name="loginNumber" th:value="${record.loginNumber}">
+        <input type="hidden" name="studentanswer" th:value="${record.studentanswer}">
+        <input type="text" name="getscore" placeholder="输入判分">
+        <input type="submit" name="btn" value="提交">
+    </form>
+</div>
+
+</body>
+</html>

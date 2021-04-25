@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图表分析</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.6.0/echarts.min.js"></script>
+</head>
+<body>
+<div id="main" style="width: 600px;height: 400px"></div>
+<input type="hidden" th:value="${types[0]}" id="value1">
+<input type="hidden" th:value="${types[1]}" id="value2">
+<input type="hidden" th:value="${types[2]}" id="value3">
+<input type="hidden" th:value="${types[3]}" id="value4">
+<input type="hidden" th:value="${types[4]}" id="value5">
+
+<input type="hidden" th:value="${rates[0]}" id="value6">
+<input type="hidden" th:value="${rates[1]}" id="value7">
+<input type="hidden" th:value="${rates[2]}" id="value8">
+<input type="hidden" th:value="${rates[3]}" id="value9">
+<input type="hidden" th:value="${rates[4]}" id="value10">
+
+<script type="text/javascript">
+    var mychart = echarts.init(document.getElementById('main'));
+    var value1 = $('#value1').val();
+    var value2 = $('#value2').val();
+    var value3 = $('#value3').val();
+    var value4 = $('#value4').val();
+    var value5 = $('#value5').val();
+    var value6 = $('#value6').val();
+    var value7 = $('#value7').val();
+    var value8 = $('#value8').val();
+    var value9 = $('#value9').val();
+    var value10 = $('#value10').val();
+
+
+    var option = {
+        title:{
+            text:'得分情况',
+            subtext: '纯属虚构',
+            left: 'center'
+        },
+        tooltip: {
+            // trigger: 'item'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data:['比例']
+        },
+        xAxis: {
+            data: [value1, value2, value3, value4, value5]
+        },
+        yAxis: {},
+        series: [{
+            name:'得分率',
+            type:'bar',
+            data: [
+                {value: value6},
+                {value: value7},
+                {value: value8},
+                {value: value9},
+                {value: value10}
+            ]
+        }]
+    };
+
+    mychart.setOption(option);
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生选课情况</title>
+</head>
+<body>
+<h1>学生选课情况</h1>
+<!--<p th:text="${student_subjects.get(0).loginNumber}"></p>-->
+<a href="/stu/add">增加选课</a>
+<div th:each="student_subject : ${student_subjects}">
+    <span th:text="${student_subject.loginNumber}">loginNumber</span>
+    <span th:text="${student_subject.coursename}">coursename</span>
+    <span><a th:href="@{'/stu/delete/' + ${student_subject.id}}">删除</a></span>
+</div>
+</body>
+</html>

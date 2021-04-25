@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新增题目</title>
+    <style>
+        input[type='text']
+        {
+            display: block;
+            width: 60%;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+<h1>新增题目</h1>
+<div>
+    <form action="/question/add" method="post">
+        <input type="text" name="major" placeholder="专业">
+        <input type="text" name="subject" placeholder="课程">
+        <input type="text" name="userid" placeholder="插入者">
+        <input type="text" name="type" placeholder="题目类型">
+        <input type="text" name="question" placeholder="问题内容">
+        <input type="text" name="score" placeholder="分值">
+        <input type="text" name="difficulty" placeholder="难度系数">
+        <input type="text" name="answer" placeholder="答案">
+        <input type="text" name="choiceA" placeholder="选项A">
+        <input type="text" name="choiceB" placeholder="选项B">
+        <input type="text" name="choiceC" placeholder="选项C">
+        <input type="text" name="choiceD" placeholder="选项D">
+        <input type="text" name="points" placeholder="知识点编号，用逗号隔开">
+        <div th:each="point : ${points}">
+            <span th:text="${point.id}">id</span>
+            <span th:text="${point.content}">content</span>
+            <span th:text="${point.subject_id}">subject_id</span>
+        </div>
+        <button><input type="submit" name="button" value="提交"></button>
+    </form>
+</div>
+</body>
+</html>

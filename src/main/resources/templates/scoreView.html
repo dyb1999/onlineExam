@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>查看考试成绩</title>
+    <style>
+        input[name='button']
+        {
+            display: inline-block;
+            /*width: 30%;*/
+        }
+        input
+        {
+            display: inline-block;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+<h1>查看考试成绩</h1>
+<div th:each="score : ${scores}">
+    <span th:text="${score.examcode}"></span>
+    <span th:text="${score.paperid}"></span>
+    <span th:text="${score.subject}"></span>
+    <span th:text="${score.loginNumber}"></span>
+    <span th:text="${score.score}"></span>
+    <span th:text="${score.level}"></span>
+</div>
+<form action="/totalscore/list/exam" method="post">
+    <label>查看某场考试成绩</label>
+    <input name="examcode" type="text" placeholder="输入考试编号查看所有学生成绩">
+    <input type="submit" name="button" value="搜索">
+</form>
+<form action="/totalscore/list/stu" method="post">
+    <label>查看学生所有考试成绩</label>
+    <input name="loginNumber" type="text" placeholder="输入学生学号查看所有考试成绩">
+    <input type="submit" name="button" value="搜索">
+</form>
+<form action="/totalscore/calculateSomeone" method="post">
+    <label>计算学生某场考试总的成绩</label>
+    <input name="examcode" type="text" placeholder="输入考试编号">
+    <input name="paperid" type="text" placeholder="输入试卷编号" >
+    <input name="loginNumber" type="text" placeholder="输入学生学号">
+    <input type="submit" name="button" value="搜索">
+</form>
+<form action="/totalscore/calculatePart" method="post">
+    <label>计算某个考试的所有学生的得分</label>
+    <input name="examcode" type="text" placeholder="输入考试编号">
+    <input name="paperid" type="text" placeholder="输入试卷编号">
+    <input type="submit" name="button" value="搜索">
+</form>
+<form action="/totalscore/calculateRange" method="post">
+    <label>计算排名等级10% A 10%-30% B 30%-60% C 60%后 D</label>
+    <input name="examcode" type="text" placeholder="输入考试编号">
+    <input type="submit" name="button" value="搜索">
+</form>
+<form action="/totalscore/list/charts" method="post">
+    <label>查看图表</label>
+    <input name="examcode" type="text" placeholder="输入考试编号">
+    <input type="submit" value="提交" name="button">
+</form>
+</body>
+</html>

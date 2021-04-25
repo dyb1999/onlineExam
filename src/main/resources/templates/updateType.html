@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>修改题型</title>
+    <style>
+        input[type="text"] {
+            display: block;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+<h1>请填写修改题型信息</h1>
+<form action="/type/update" method="post">
+    <input type="text" name="type" placeholder="题型编号" th:value="${type.type}">
+    <input type="text" name="type_name" placeholder="题型名" th:value="${type.type_name}">
+    <input type="submit" name="button1" value="提交">
+    <input type="reset" name="button2" value="重置">
+</form>
+</body>
+</html>

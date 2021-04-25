@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册/添加用户界面</title>
+    <style>
+        input[type=text]
+        {
+            display: block;
+            width: 60%;
+            height: 30px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        div {
+            width: 70%;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        input[type=submit],input[type=reset] {
+            width: 60%;
+            /*dipaly:block;*/
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>注册界面</h1>
+<div>
+    <form action="/user/add" method="post">
+        name,realname,password,role,age,gender,loginNumber,major,grade,myclass,email,phone
+        <input type="text" name="name" placeholder="用户名">
+        <input type="text" name="realname" placeholder="真名">
+        <input type="text" name="password" placeholder="密码">
+        <input type="text" name="role" placeholder="角色">
+        <input type="text" name="age" placeholder="年龄">
+        <input type="text" name="gender" placeholder="性别">
+        <input type="text" name="loginNumber" placeholder="学号/工号">
+        <input type="text" name="major" placeholder="专业">
+        <input type="text" name="grade" placeholder="年级">
+        <input type="text" name="myclass" placeholder="班级">
+        <input type="text" name="email" placeholder="邮箱">
+        <input type="text" name="phone" placeholder="电话">
+        <input type="submit" name="button1" placeholder="提交">
+        <input type="reset" value="重置">
+    </form>
+</div>
+
+</body>
+</html>

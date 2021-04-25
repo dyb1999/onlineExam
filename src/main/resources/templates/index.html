@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>这是首页</title>
+</head>
+<style>
+    a
+    {
+     display: block;
+    }
+    div {
+        padding: 0 4vw;
+        margin: 0 auto;
+        width: 80vw;
+        text-align: center;
+    }
+    a[name="log_out"]
+    {
+        display: inline-block;
+        text-align: left;
+        width: auto;
+    }
+</style>
+<body>
+<h1>首页</h1>
+<div>
+    <span th:text="${user.loginNumber}">loginNumber</span>
+    <span th:text="${rolename}">rolename</span>
+    <a href="/user/logout" name="log_out">登出</a>
+    <a href="/stu/list" name="stu_subject">我的选课</a>
+    <a href="/stu/" name="my_grade">我的成绩</a>
+</div>
+
+<a href="/user/list">用户管理</a>
+<a href="/exam/list">考试管理</a>
+<a href="/paper/list">试卷管理</a>
+<a href="/subject/list">课程管理</a>
+<a href="/question/list">问题管理</a>
+<a href="/type/list">题型管理</a>
+<a href="/record/list1">成绩记录管理</a>
+<a href="/totalscore/list">总成绩管理</a>
+</body>
+</html>

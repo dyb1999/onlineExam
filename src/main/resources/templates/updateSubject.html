@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>修改课程信息</h1>
+<form action="/subject/update" method="post">
+    <input type="text" name="coursename" th:value="${subject.coursename}">
+    <input type="text" name="major" th:value="${subject.major}">
+    <input type="text" name="coursegrade" th:value="${subject.coursegrade}">
+    <button><input type="submit" name="submit" placeholder="提交"></button>
+</form>
+</body>
+</html>

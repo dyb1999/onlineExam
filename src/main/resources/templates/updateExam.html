@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加考试</title>
+</head>
+<body>
+<h1>填写考试信息</h1>
+<form action="/exam/update" method="post">
+    <input name="examcode" type="hidden" placeholder="考试编号" th:value="${exam.examcode}">
+    <input name="paperid" type="text" placeholder="试卷编号" th:value="${exam.paperid}">
+    <input name="examname" type="text" placeholder="考试名称" th:value="${exam.examname}">
+    <input name="starttime" type="text" placeholder="开始时间" th:value="${exam.starttime}">
+    <input name="endtime" type="text" placeholder="结束时间" th:value="${exam.endtime}">
+    <input name="exammajor" type="text" placeholder="考试专业" th:value="${exam.exammajor}">
+    <input name="examgrade" type="text" placeholder="考试年级" th:value="${exam.examgrade}">
+    <input name="examclass" type="text" placeholder="考试班级" th:value="${exam.examclass}">
+    <input name="examinfo" type="text" placeholder="考试信息" th:value="${exam.examinfo}">
+    <button><input type="submit" name="button" value="上传"></button>
+</form>
+</body>
+</html>

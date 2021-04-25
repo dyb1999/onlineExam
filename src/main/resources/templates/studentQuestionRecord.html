@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>考生考试结果/试卷分析</title>
+</head>
+<body>
+<span>考试： </span>
+<span th:text="${recordList.get(0).examcode}">examcode</span>
+<span>试卷： </span>
+<span th:text="${recordList.get(0).paperid}">paperid</span>
+<span>学生： </span>
+<span th:text="${recordList.get(0).loginNumber}">loginNumber</span>
+<div th:each="record : ${recordList}">
+    <span>题目编号：</span>
+    <span th:text="${record.questionid}">编号</span>
+    <span>题目得分：</span>
+    <span th:text="${record.getscore}">得分</span>
+</div>
+</body>
+</html>

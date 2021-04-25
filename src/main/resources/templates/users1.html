@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>所有用户！！！</title>
+</head>
+<body>
+<h1>在线考试系统所有用户列表</h1>
+<!--<form action="/user/select" method="post">-->
+<!--    <input type="text" name="var" placeholder="请输入查询条件（名字/学号）">-->
+<!--    <button><input type="submit" value="提交"></button>-->
+<!--</form>-->
+<hr>
+<div>
+    <table th:each="user : ${users}"  border="1 solid black" style="border-collapse: collapse">
+        <tr>
+            <td th:text="${user.name}">name</td>
+            <td th:text="${user.realname}">realname</td>
+            <td th:text="${user.password}">password</td>
+            <td th:text="${user.role}">role</td>
+            <td th:text="${user.age}">age</td>
+            <td th:text="${user.gender}">gender</td>
+            <td th:text="${user.loginNumber}">loginNumber</td>
+            <td th:text="${user.major}">major</td>
+            <td th:text="${user.grade}">grade</td>
+            <td th:text="${user.myclass}">myclass</td>
+            <td th:text="${user.email}">email</td>
+            <td th:text="${user.phone}">phone</td>
+<!--            <td><button><a href="">删除</a></button></td>-->
+<!--            <td><button><a href="">修改</a></button></td>-->
+        </tr>
+
+    </table>
+    <button><a href="@{'user/list/'}">返回上页</a></button>
+</div>
+</body>
+</html>

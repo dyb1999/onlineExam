@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>试卷列表</title>
+</head>
+<body>
+<h1>这是试卷列表</h1>
+<div th:each="paper : ${paperList}">
+    <span th:text="${paper.paperid}"></span>
+    <span th:text="${paper.subject}"></span>
+    <span th:text="${paper.totalscore}"></span>
+    <span th:text="${paper.KPCoverage}"></span>
+    <span th:text="${paper.difficulty}"></span>
+    <span th:text="${paper.adaptationDegree}"></span>
+    <span th:text="${paper.problemCount}"></span>
+</div>
+</body>
+</html>

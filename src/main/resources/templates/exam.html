@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>考试列表</title>
+</head>
+<body>
+<h1>这是考试列表</h1>
+<div th:each="exam : ${exams}">
+    <span th:text="${exam.examcode}"></span>
+    <span th:text="${exam.paperid}"></span>
+    <span th:text="${exam.examname}"></span>
+    <span th:text="${exam.exammajor}"></span>
+    <span th:text="${exam.examgrade}"></span>
+    <span th:text="${exam.examclass}"></span>
+    <span th:text="${exam.examinfo}"></span>
+    <span th:text="${exam.starttime}"></span>
+    <span th:text="${exam.endtime}"></span>
+    <span><a href="/exam/add">添加考试</a></span>
+    <span><a th:href="@{'/exam/delete/' + ${exam.examcode}}">删除考试</a></span>
+    <span><a th:href="@{'/exam/update/' + ${exam.examcode}}">更新考试信息</a></span>
+    <a th:href="@{'/exam/enter/' + ${exam.examcode}}">参加考试</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加题型</title>
+    <style>
+        input[type="text"] {
+            display: block;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+<h1>请填写题型信息</h1>
+<form action="/type/add" method="post">
+    <input type="text" name="type" placeholder="题型编号">
+    <input type="text" name="type_name" placeholder="题型名">
+    <input type="submit" name="button1" value="提交">
+    <input type="reset" name="button2" value="重置">
+</form>
+</body>
+</html>

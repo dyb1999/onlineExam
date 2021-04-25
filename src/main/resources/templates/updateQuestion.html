@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新增题目</title>
+</head>
+<body>
+<h1>新增题目</h1>
+<form action="/question/update" method="post">
+    <input name="id" type="hidden" th:value="${question.id}">
+    <input name="major" type="text" th:value="${question.major}">
+    <input name="subject" type="text" th:value="${question.subject}">
+    <input name="userid" type="text" th:value="${question.userid}">
+    <input name="type" type="text" th:value="${question.type}">
+    <input name="question" type="text" th:value="${question.question}">
+    <input name="score" type="text" th:value="${question.score}">
+    <input name="difficulty" type="text" th:value="${question.difficulty}">
+    <input name="answer" type="text" th:value="${question.answer}">
+    <button><input type="submit" value="提交修改"></button>
+</form>
+</body>
+</html>

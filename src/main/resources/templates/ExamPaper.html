@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>题目列表</title>
+    <style>
+        span
+        {
+            display: inline-block;
+            width: 6%;
+        }
+        #count span{
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255,255, 0.2);
+            line-height:60px ;
+            display: inline-block;
+            vertical-align:middle ;
+            box-shadow: 0 0 5px rgba(255, 255,255, 0.3);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1 th:text="${exam.examname} + '试卷'">微积分试卷</h1>
+<p th:text="${exam.exammajor}">专业：</p>
+<p>考试年级：</p>
+<p th:text="${exam.examgrade} + '级'"></p>
+<p>考试班级：</p>
+<p th:text="${exam.examclass}"></p>
+<p>注意事项：</p>
+<p th:text="${exam.examinfo}">信息</p>
+<span style="width: 20%">距离考试结束还有</span>
+<div id="count">
+    <span class="day">0天</span>
+    <span class="hour">0小时</span>
+    <span class="min">0分钟</span>
+    <span class="sec">0秒</span>
+</div>
+<div th:each="question, questionStat : ${paper.questionList}">
+    <span th:text="${questionStat.index} + '.'"></span>
+    <p th:text="${question.question}"></p>
+    <span>A.</span>
+    <span th:text="${question.choiceA}"></span>
+    <span>B.</span>
+    <span th:text="${question.choiceB}"></span>
+    <span>C.</span>
+    <span th:text="${question.choiceC}"></span>
+    <span>D.</span>
+    <span th:text="${question.choiceD}"></span>
+    <form action="/record/submit" method="post">
+        <input name="examcode" type="hidden" th:value="${exam.examcode}">
+        <input name="paperid" type="hidden" th:value="${exam.paperid}">
+        <input name="questionid" type="hidden" th:value="${question.id}">
+        <input name="studentanswer" type="text" placeholder="你的答案" th:value="${answers[questionStat.index+0]}">
+        <input type="submit" name="button" value="提交">
+    </form>
+</div>
+<script>
+    //时间对象
+    //未来时间-现在时间
+    var oCount=document.getElementById("count");
+    var spans=oCount.getElementsByTagName("span");
+
+    // var starttime = new Date("2021-4-20 21:00:00");
+    var endTime=new Date("2021-4-29 21:00:00");
+    var timer=null;
+    clearInterval(timer);
+    timer=setInterval(countTimer,1000);
+
+    function countTimer(){
+
+        var nowTime=new Date();
+        var lastTime=parseInt((endTime-nowTime)/1000);//parseInt()去掉小数
+
+        if(lastTime>=0){
+            var day=parseInt(lastTime/60/60/24);
+            var hour=parseInt(lastTime/60/60%24);
+            var min=parseInt(lastTime/60%60);
+            var sec=parseInt(lastTime%60);
+            spans[0].innerHTML=day + "天";
+            spans[1].innerHTML=hour + "小时";
+            spans[2].innerHTML=min + "分";
+            spans[3].innerHTML=sec + "秒";
+        }else{
+            clearInterval(timer);
+        }
+    }
+</script>
+</body>
+</html>

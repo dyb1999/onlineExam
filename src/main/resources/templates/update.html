@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>注册/添加用户界面</title>
+    <style>
+        input[type=text]
+        {
+            display: block;
+            width: 60%;
+            height: 30px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<h1>修改用户信息</h1>
+<form action="/user/update" method="post">
+    name,realname,password,role,age,gender,loginNumber,major,grade,myclass,email,phone
+<!--    <input type="hidden" th:value="${user.loginNumber}" name="loginNumber">-->
+    <input type="text" name="name" placeholder="用户名" th:value="${user.name}">
+    <input type="text" name="realname" placeholder="真名" th:value="${user.realname}">
+    <input type="text" name="password" placeholder="密码" th:value="${user.password}">
+    <input type="text" name="role" placeholder="角色" th:value="${user.role}">
+    <input type="text" name="age" placeholder="年龄" th:value="${user.age}">
+    <input type="text" name="gender" placeholder="性别" th:value="${user.gender}">
+    <input type="text" name="loginNumber" placeholder="学号/工号" th:value="${user.loginNumber}">
+    <input type="text" name="major" placeholder="专业" th:value="${user.major}">
+    <input type="text" name="grade" placeholder="年级" th:value="${user.grade}">
+    <input type="text" name="myclass" placeholder="班级" th:value="${user.myclass}">
+    <input type="text" name="email" placeholder="邮箱" th:value="${user.email}">
+    <input type="text" name="phone" placeholder="电话" th:value="${user.phone}">
+    <input type="submit" name="button1" placeholder="提交">
+    <input type="reset" value="重置">
+</form>
+</body>
+</html>

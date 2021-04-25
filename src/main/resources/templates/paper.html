@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>题目列表</title>
+    <style>
+        span
+        {
+            display: inline-block;
+            width: 6%;
+        }
+    </style>
+</head>
+<body>
+<h1>微积分试卷</h1>
+<div th:each="question : ${paper.questionList}">
+    <p th:text="${question.question}"></p>
+    <span>A.</span>
+    <span th:text="${question.choiceA}"></span>
+    <span>B.</span>
+    <span th:text="${question.choiceB}"></span>
+    <span>C.</span>
+    <span th:text="${question.choiceC}"></span>
+    <span>D.</span>
+    <span th:text="${question.choiceD}"></span>
+</div>
+</body>
+</html>
